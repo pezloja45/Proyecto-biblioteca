@@ -28,3 +28,8 @@
 - Jaime : Gestión de sesiones e  implementación del inicio de sesión,  implementación de la funcionalidad de registro de usuarios.
 - Alejandro : Funcionalidad de búsqueda/filtrado de libros/donación de libros.
 - Pedro : Desarrollo de la funcionalidad de préstamo y devolución de libros, así como la administración de libros.
+
+##Nombres de los usuarios:
+Alexmt10: Alejandro
+P3droRamirez: Pedro
+pezloja45: Jaime
