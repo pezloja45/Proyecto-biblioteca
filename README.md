@@ -30,6 +30,6 @@
 - Pedro : Desarrollo de la funcionalidad de préstamo y devolución de libros, así como la administración de libros.
 
 ## Nombres de los usuarios:
-Alexmt10: Alejandro
-P3droRamirez: Pedro
-pezloja45: Jaime
+- Alexmt10: Alejandro
+- P3droRamirez: Pedro
+- pezloja45: Jaime
