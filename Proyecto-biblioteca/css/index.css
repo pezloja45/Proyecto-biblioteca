@@ -50,3 +50,14 @@ h2 {
 p {
     font-size: 12px;
 }
+.fixed-footer {
+    border-radius: 15px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80%;
+    max-width: 1500px;
+    background-color: #cecec6;
+    text-align: center;
+}

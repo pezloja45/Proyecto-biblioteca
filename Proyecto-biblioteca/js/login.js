@@ -16,7 +16,7 @@ function login() {
                 window.location.href = 'acciones_usuario.html';
             } else if (userData.rol === 'administrador') {
                 alert('Has iniciado sesión correctamente como administrador');
-                window.location.href = 'acciones_administrador.html';
+                window.location.href = 'listaLibrosAdmin.html';
             }
         } else {
             alert('Contraseña incorrecta');

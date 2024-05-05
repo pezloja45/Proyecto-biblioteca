@@ -4,9 +4,7 @@ body {
     background-size: cover;
     color: white;
 }
-
 .container {
-    background-color: white; 
     padding: 20px; 
     margin: auto; 
     max-width: 800px; 
@@ -26,4 +24,17 @@ th {
     background-color: #cecec6; 
     color: white; 
 }
-
+.fixed-footer {
+    border-radius: 15px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80%;
+    max-width: 1500px;
+    background-color: #cecec6;
+    text-align: center;
+}
+#color {
+    color: white;
+}
