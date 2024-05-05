@@ -14,12 +14,12 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 img {
-    width: 100px; /* Ajusta el ancho del logo según sea necesario */
-    height: auto; /* Mantén la proporción del logo */
-    margin-bottom: 20px; /* Agrega espacio entre el logo y los campos del formulario */
-    display: block; /* Hace que el logo sea un bloque para poder aplicar márgenes */
-    margin-left: auto; /* Centra horizontalmente el logo */
-    margin-right: auto; /* Centra horizontalmente el logo */
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 input {
     background-color: rgba(255,255,255,0.7);
