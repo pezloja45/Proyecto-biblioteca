@@ -10,12 +10,12 @@ body {
     max-width: 800px; 
 }
 table {
-    border-collapse: collapse; 
+    border-collapse: 3px solid collapse; 
     width: 100%; 
 }
 
 th, td {
-    border: 1px solid white; 
+    border: 3px solid white; 
     padding: 8px; 
     text-align: left; 
 }
