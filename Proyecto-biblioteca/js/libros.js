@@ -1,4 +1,4 @@
-let libros = [
+let libros = JSON.parse(localStorage.getItem('libros')) || [
     { isbn: 1, titulo: 'Harry Potter y la piedra filosofal', autor: 'J.K. Rowling', ejemplares: 1, genero: 'Fantasía', precio: 19.99, foto: '' },
     { isbn: 2, titulo: 'El gran Gatsby', autor: 'F. Scott Fitzgerald', ejemplares: 1, genero: 'Ficción', precio: 12.99, foto: '' },
     { isbn: 3, titulo: '1984', autor: 'George Orwell', ejemplares: 1, genero: 'Ciencia Ficción', precio: 15.99, foto: '' },
@@ -44,8 +44,6 @@ let libros = [
 ];
 
 
-
-
 const librosPorPagina = 8; 
 let paginaActual = 1; 
 
@@ -71,13 +69,29 @@ function mostrarListaLibros() {
                 <p class="card-text">Número de Libros: ${libro.ejemplares}</p>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary">Detalles</button>
+                <button class="btn btn-primary" onclick="mostrarOpciones(${libro.isbn})">Detalles</button>
+                <div id="opciones-${libro.isbn}" style="display: none;">
+                <button onclick="Borrar(${libro.isbn})" class="btn btn-primary rounded-pill me-2 mb-2 mt-2">Borrar</button>
+                    </div>
+                </div>
             </div>
         </div>
         `;
 
         listaLibrosContainer.appendChild(card);
     });
+}
+
+function Borrar(isbn) {
+    libros = libros.filter(libro => libro.isbn !== isbn);
+    localStorage.setItem('libros', JSON.stringify(libros));
+    mostrarListaLibros();
+    initPaginator();
+}
+
+function mostrarOpciones(isbn) {
+    const opciones = document.getElementById(`opciones-${isbn}`);
+    opciones.style.display = opciones.style.display === 'none' ? 'block' : 'none';
 }
 
 function initPaginator() {
@@ -100,17 +114,50 @@ function initPaginator() {
         li.appendChild(a);
         paginator.appendChild(li);
     }
-
   
     highlightCurrentPage();
 }
 
+function highlightCurrentPage() {
+    const currentPage = document.querySelector('.pagination .active');
+    if (currentPage) {
+        currentPage.classList.remove('active');
+    }
+    document.querySelector(`.pagination li:nth-child(${paginaActual})`).classList.add('active');
+}
 
+function addBook() {
+    const isbn = document.getElementById('isbn').value;
+    const titulo = document.getElementById('titulo').value;
+    const autor = document.getElementById('autor').value;
+    const ejemplares = document.getElementById('ejemplares').value;
+    const genero = document.getElementById('genero').value;
+    const precio = document.getElementById('precio').value;
+    const foto = document.getElementById('foto').value;
 
+    if (isbn && titulo && autor && ejemplares && genero && precio && foto) {
+        console.log('Libro añadido:', { isbn, titulo, autor, ejemplares, genero, precio, foto });
+        libros.push({
+            isbn: parseInt(isbn),
+            titulo: titulo,
+            autor: autor,
+            ejemplares: parseInt(ejemplares),
+            genero: genero,
+            precio: parseFloat(precio),
+            foto: foto
+        });
+        localStorage.setItem('libros', JSON.stringify(libros));
+        Swal.fire({
+            icon: 'success',
+            title: 'Libro añadido con exito',
+            text: 'El libro ha sido añadido con éxito, ahora puedes verlo en la lista.'
+        }).then(() => {
+            window.location.href = 'listaLibrosAdmin.html';
+        });
+    } else {
+        document.getElementById('addBookMessage').textContent = 'Por favor, rellena todos los campos';
+    }
 
-
-
-
-
-
-
+    mostrarListaLibros();
+    initPaginator();
+}
