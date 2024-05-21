@@ -1,4 +1,4 @@
-let libros = [
+let libros = JSON.parse(localStorage.getItem('libros')) || [
     { isbn: 1, titulo: 'Harry Potter y la piedra filosofal', autor: 'J.K. Rowling', ejemplares: 1, genero: 'Fantasía', precio: 19.99, foto: '' },
     { isbn: 2, titulo: 'El gran Gatsby', autor: 'F. Scott Fitzgerald', ejemplares: 1, genero: 'Ficción', precio: 12.99, foto: '' },
     { isbn: 3, titulo: '1984', autor: 'George Orwell', ejemplares: 1, genero: 'Ciencia Ficción', precio: 15.99, foto: '' },
@@ -154,11 +154,38 @@ function highlightCurrentPage() {
 initPaginator();
 mostrarListaLibros();
 
+function DonarLibro() {
+    const isbn = document.getElementById('isbn').value;
+    const titulo = document.getElementById('titulo').value;
+    const autor = document.getElementById('autor').value;
+    const ejemplares = document.getElementById('ejemplares').value;
+    const genero = document.getElementById('genero').value;
+    const foto = document.getElementById('foto').value;
+    const precio = document.getElementById('precio').value;
 
+    if (isbn && titulo && autor && ejemplares && genero && precio && foto) {
+        console.log('Libro añadido:', { isbn, titulo, autor, ejemplares, genero, precio, foto });
+        libros.push({
+            isbn: parseInt(isbn),
+            titulo: titulo,
+            autor: autor,
+            ejemplares: parseInt(ejemplares),
+            genero: genero,
+            precio: parseInt(precio),
+            foto: foto
+        });
+        localStorage.setItem('libros', JSON.stringify(libros));
+        Swal.fire({
+            icon: 'success',
+            title: 'Libro añadido con exito',
+            text: 'El libro ha sido añadido con éxito, ahora puedes verlo en la lista.'
+        }).then(() => {
+            window.location.href = 'listaLibrosUser.html';
+        });
+    } else {
+        document.getElementById('addBookMessage').textContent = 'Por favor, rellena todos los campos';
+    }
 
-
-
-
-
-
-
+    mostrarListaLibros();
+    initPaginator();
+}

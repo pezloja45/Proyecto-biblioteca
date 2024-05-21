@@ -10,39 +10,41 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(206, 206, 198); background-attachment: scroll;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#" style="color: black;">Mi Biblioteca Online</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(206, 206, 198); background-attachment: scroll;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: black;">Mi Biblioteca Online</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html" style="color: black;">Cerrar sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="color: black;">Conócenos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="servicios.html" style="color: black;">Servicios Disponibles</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="horarios.html" style="color: black;">Horarios</a>
-              </li>
-    
-              </li>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" style="color: black;">Cerrar sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: black;">Conócenos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="servicios.html" style="color: black;">Servicios Disponibles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="horarios.html" style="color: black;">Horarios</a>
+                </li>
             </ul>
-          </div>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="donarlibro.html" style="color: white; background-color: #0060f0; border-radius: 14%;">Donar</a>
+              </li>
+          </ul>
         </div>
-      </nav>
+    </div>
+</nav>
 
     <div class="container">
         <div class="row" id="listaLibros"></div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center" id="paginator"></ul>
         </nav>
-        <button onclick="window.history.back()" class="btn btn-primary mt-4">Volver</button>
     </div>
 
     <footer class="fixed-footer">
@@ -70,7 +72,6 @@
             <!-- Copyright -->
         </div>
     </footer>
-
     <script src="js/librosUser.js"></script>
     <script>
         window.onload = function() {
