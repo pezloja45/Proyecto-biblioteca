@@ -43,7 +43,7 @@ let libros = [
     { isbn: 42, titulo: 'El cuaderno de Maya', autor: 'Isabel Allende', ejemplares: 1, genero: 'Romance', precio: 11.99, foto: '' }
 ];
 
-
+let librosAlquilados = [];
 
 
 const librosPorPagina = 8; 
@@ -51,7 +51,7 @@ let paginaActual = 1;
 
 function mostrarListaLibros() {
     const listaLibrosContainer = document.getElementById('listaLibros');
-    listaLibrosContainer.innerHTML = ''; 
+    listaLibrosContainer.innerHTML = '';
 
     const startIndex = (paginaActual - 1) * librosPorPagina;
     const endIndex = startIndex + librosPorPagina;
@@ -71,7 +71,12 @@ function mostrarListaLibros() {
                 <p class="card-text">Número de Libros: ${libro.ejemplares}</p>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary">Detalles</button>
+                <button class="btn btn-primary" onclick="mostrarOpciones(${libro.isbn})">Detalles</button>
+                <div id="opciones-${libro.isbn}" style="display: none;">
+                <button onclick="alquilar(${libro.isbn})" class="btn btn-primary rounded-pill me-2 mb-2 mt-2">Alquilar</button>
+                <button onclick="devolver(${libro.isbn})" class="btn btn-primary rounded-pill me-2 mb-2">Devolver</button>
+                    </div>
+                </div>
             </div>
         </div>
         `;
@@ -80,10 +85,42 @@ function mostrarListaLibros() {
     });
 }
 
+function mostrarOpciones(isbn) {
+    const opciones = document.getElementById(`opciones-${isbn}`);
+    opciones.style.display = opciones.style.display === 'none' ? 'block' : 'none';
+}
+
+function alquilar(isbn) {
+    const libro = libros.find(libro => libro.isbn === isbn);
+    if (!libro) return;
+
+    if (libro.ejemplares > 0) {
+        librosAlquilados.push(libro);
+        alert('Has alquilado el libro exitosamente.');
+        libro.ejemplares--;
+        mostrarListaLibros();
+    } else {
+        alert('Libro no disponible. Ya ha sido alquilado por otro usuario.');
+    }
+}
+
+function devolver(isbn) {
+    const libroIndex = librosAlquilados.findIndex(libro => libro.isbn === isbn);
+
+    if (libroIndex !== -1) {
+        const libroDevuelto = librosAlquilados[libroIndex];
+        librosAlquilados.splice(libroIndex, 1);
+        libroDevuelto.ejemplares++;
+        mostrarListaLibros();
+        alert(`Has devuelto el libro: ${libroDevuelto.titulo}`);
+    } else {
+        alert(`No tienes el libro con ISBN ${isbn} en tu propiedad.`);
+    }
+}
 function initPaginator() {
     const totalPaginas = Math.ceil(libros.length / librosPorPagina);
     const paginator = document.getElementById('paginator');
-    paginator.innerHTML = ''; 
+    paginator.innerHTML = '';
 
     for (let i = 1; i <= totalPaginas; i++) {
         const li = document.createElement('li');
@@ -101,10 +138,21 @@ function initPaginator() {
         paginator.appendChild(li);
     }
 
-  
+
     highlightCurrentPage();
 }
 
+function highlightCurrentPage() {
+    const currentPage = document.querySelector('.pagination .active');
+    if (currentPage) {
+        currentPage.classList.remove('active');
+    }
+    document.querySelector(`.pagination li:nth-child(${paginaActual})`).classList.add('active');
+}
+
+
+initPaginator();
+mostrarListaLibros();
 
 
 
