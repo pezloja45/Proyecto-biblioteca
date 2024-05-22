@@ -183,7 +183,12 @@ function DonarLibro() {
             window.location.href = 'listaLibrosUser.html';
         });
     } else {
-        document.getElementById('addBookMessage').textContent = 'Por favor, rellena todos los campos';
+        Swal.fire({
+            icon: 'error',
+            title: '¡Oops!',
+            text: 'Por favor, rellena todos los campos.'
+        });
+
     }
 
     mostrarListaLibros();
