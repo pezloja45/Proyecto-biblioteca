@@ -6,46 +6,32 @@ body {
     animation: fadeIn 1s ease;
 }
 
-.container {
-    padding: 20px;
-    margin: auto;
-    max-width: 1000px;
-}
-
-body>h2 {
+h1 {
+    color: rgb(196, 185, 185);
+    text-align: center;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     animation: fadeInDown 1s ease;
 }
 
 .card {
-    animation: slideInLeft 1s ease;
-}
-
-.card-body {
-    height: 310px;
-    background-color: rgb(206, 206, 198);
-    animation: fadeInRight 1s ease;
-}
-
-.card-footer {
     background-color: rgb(165, 165, 158);
-}
-
-.card-body li:before {
-    content: "\2022";
-    color: #007bff;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-.card-body li {
-    margin-bottom: 20px;
-    font-size: 16px;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border: 2px solid rgba(41, 24, 3, 0.75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInRight 1s ease;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
 }
 
 .fixed-footer {
-    border-radius: 15px;
-    position: relative;
+    border-radius: 
+    15px;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
@@ -90,16 +76,6 @@ body>h2 {
     }
 }
 
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
 @keyframes slideInUp {
     from {
         transform: translateY(100%);
@@ -108,8 +84,4 @@ body>h2 {
     to {
         transform: translateY(0);
     }
-}
-.card-img {
-    max-width: 100%;
-    height: auto;
 }
