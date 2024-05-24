@@ -44,12 +44,12 @@ let libros = JSON.parse(localStorage.getItem('libros')) || [
 ];
 
 
-const librosPorPagina = 8; 
-let paginaActual = 1; 
+const librosPorPagina = 8;
+let paginaActual = 1;
 
 function mostrarListaLibros() {
     const listaLibrosContainer = document.getElementById('listaLibros');
-    listaLibrosContainer.innerHTML = ''; 
+    listaLibrosContainer.innerHTML = '';
 
     const startIndex = (paginaActual - 1) * librosPorPagina;
     const endIndex = startIndex + librosPorPagina;
@@ -77,9 +77,6 @@ function mostrarListaLibros() {
     </div>
 </div>
 `;
-
-
-
         listaLibrosContainer.appendChild(card);
     });
 }
@@ -101,7 +98,7 @@ function mostrarOpciones(isbn) {
 function initPaginator() {
     const totalPaginas = Math.ceil(libros.length / librosPorPagina);
     const paginator = document.getElementById('paginator');
-    paginator.innerHTML = ''; 
+    paginator.innerHTML = '';
 
     for (let i = 1; i <= totalPaginas; i++) {
         const li = document.createElement('li');
@@ -118,7 +115,7 @@ function initPaginator() {
         li.appendChild(a);
         paginator.appendChild(li);
     }
-  
+
     highlightCurrentPage();
 }
 

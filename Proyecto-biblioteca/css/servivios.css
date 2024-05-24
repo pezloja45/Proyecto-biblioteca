@@ -97,7 +97,6 @@ img {
     max-width: 1500px;
     background-color: #cecec6;
     text-align: center;
-    animation: slideInUp 1s ease;
 }
 
 @keyframes fadeIn {
@@ -141,15 +140,5 @@ img {
 
     to {
         transform: translateX(0);
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%);
-    }
-
-    to {
-        transform: translateY(0);
     }
 }

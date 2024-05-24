@@ -40,7 +40,6 @@ th {
     max-width: 1500px;
     background-color: #cecec6;
     text-align: center;
-    animation: slideInUp 1s ease;
 }
 
 #color {
@@ -82,16 +81,6 @@ a:hover {
 @keyframes slideInDown {
     from {
         transform: translateY(-100%);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%);
     }
 
     to {
