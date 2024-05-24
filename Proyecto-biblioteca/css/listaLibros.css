@@ -21,7 +21,7 @@ body>h2 {
 }
 
 .card-body {
-    height: 310px;
+    height: 400px;
     background-color: rgb(206, 206, 198);
     animation: fadeInRight 1s ease;
 }
