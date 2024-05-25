@@ -23,11 +23,14 @@
 - Podrán editar la información de los libros existentes, como título, autor, género, etc.
 - También podrán eliminar libros del catálogo.
 
-## Asignación de tareas:
-- Jaime/Alejandro/Pedro : Diseño de interfaz de usuario (HTML/CSS), 
+## Asignación de tareas js:
 - Jaime : Gestión de sesiones e  implementación del inicio de sesión,  implementación de la funcionalidad de registro de usuarios.
 - Alejandro : Funcionalidad de búsqueda/filtrado de libros/donación de libros.
 - Pedro : Desarrollo de la funcionalidad de préstamo y devolución de libros, así como la administración de libros.
+## Asigacion de tareas html/css:
+- Jaime : Diseño html/css de la pagina de inicio de sesion y registro.
+- Alejandro : Diseño html/css de la pagina de libros de usuario, donacion de libros y servicios.
+- Pedro: Diseño html/css de la pagina de libros de administrador, conocenos y horarios.
 
 ## Nombres de los usuarios:
 - Alexmt10: Alejandro
